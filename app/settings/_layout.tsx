@@ -1,14 +1,13 @@
-import { Stack } from "expo-router";
+import { Drawer } from "../../layout/Drawer";
+// export const unstable_settings = {
+//   initialRouteName: "index",
+// };
 
-export const unstable_settings = {
-  initialRouteName: "index",
-};
-
-export default function StackLayout() {
+export default function DrawerLayout() {
   return (
-    <Stack screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="index" />
-      <Stack.Screen name="next" />
-    </Stack>
+    <Drawer screenOptions={{ headerShown: false }}>
+      <Drawer.Screen name="index" options={{ title: "Home" }} />
+      <Drawer.Screen name="about" options={{ title: "About" }} />
+    </Drawer>
   );
 }

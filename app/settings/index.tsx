@@ -1,27 +1,24 @@
 import { View, Text, Pressable } from "react-native";
-import { useRouter } from "expo-router";
+// import { useNavigation } from "expo-router";
+import { DrawerNavigationProp } from "@react-navigation/drawer";
+import { DrawerRootParamList } from "../../layout/Drawer";
+import { useNavigation } from "@react-navigation/core";
 import styles from "../../styles";
 import AppButton from "../../components/AppButton";
 
-const Home = () => {
-  const router = useRouter();
+type drawerNavigatorType = DrawerNavigationProp<DrawerRootParamList, "index">;
+
+const DrawerHome = () => {
+  const navigation = useNavigation<drawerNavigatorType>();
+
   return (
     <View style={styles.container}>
       <AppButton
-        title="Settings - Go To Next"
-        handlePress={() =>
-          router.push({
-            pathname: "/settings/next",
-            params: {
-              name: "Mela Wilson",
-              age: "90",
-              sex: "Male",
-            },
-          })
-        }
+        title="About - Open Drawer"
+        handlePress={() => navigation.openDrawer()}
       />
     </View>
   );
 };
 
-export default Home;
+export default DrawerHome;
